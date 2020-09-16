@@ -5,7 +5,7 @@ public class Combat {
 	protected Heros pj;
 	protected Monstre ia;
 	
-	public static void combattre(Heros pj, Monstre ia) {
+	public static void combattreAuto(Heros pj, Monstre ia) {
 		int degatsPj;
 		int degatsIa;
 		int attaquePj;
@@ -93,6 +93,10 @@ public class Combat {
 				}
 			}
 		}
+	}
+	
+	public static void combattreTourParTour(Heros pj, Monstre ia) {
+		//TODO: implémenter une méthode de combat au tour par tour
 	}
 	
 	public static void afficherStats(Heros pj) {
