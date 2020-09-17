@@ -11,7 +11,7 @@ public class RPG {
 		String nomJoueur = input.nextLine();
 		Heros joueur = new Heros(nomJoueur, 5, 5, 1, 1, 1, 1, 0, 0);
 		System.out.println("Niveau : "+joueur.niveau);
-		Combat.afficherStats(joueur);
+		joueur.afficherStats();
 		System.out.println("Bienvenue, "+nomJoueur+" ! Vous pouvez commencer votre aventure.");
 		input.nextLine();
 		Monstre loupFaible = new Monstre("loup", 4, 4, 1, 0, 2, 1);

@@ -18,4 +18,32 @@ public class Heros extends Personnage {
 		or = tmpOr;
 	}
 	
+	public void attaquerMonstre(Monstre ia) {
+		System.out.println("Vous attaquez le " + ia.nom + " ennemi !");
+		int attaquePj = (int)(Math.random()*this.attaque)+1;
+		int degatsPj = (attaquePj)-(ia.armure);
+		if (degatsPj<=0) {
+			degatsPj = 1;
+		}
+		ia.pointsVie -= degatsPj;
+		System.out.println("Le "+ia.nom+" ennemi perd "+degatsPj+" points de vie, il lui reste "+ia.pointsVie+" points de vie.");
+	}
+	
+	public void monterNiveau() {
+		this.pointsVieMax += 5;
+		this.attaque += 2;
+		this.armure++;
+		this.vitesse++;
+		this.niveau++;
+		System.out.println("Vous passez au niveau "+this.niveau+" !");
+		this.afficherStats();
+	}
+	
+	public void afficherStats() {
+		System.out.println("Points de vie : "+this.pointsVieMax);
+		System.out.println("Points d'attaque : "+this.attaque);
+		System.out.println("Points d'armure : "+this.armure);
+		System.out.println("Points de vitesse : "+this.vitesse);
+	}
+	
 }
