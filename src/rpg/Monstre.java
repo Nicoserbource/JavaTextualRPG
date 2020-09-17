@@ -21,7 +21,9 @@ public class Monstre extends Personnage {
 			degatsIa = 1;
 		}
 		pj.pointsVie -= degatsIa;
-		System.out.println("Vous perdez "+degatsIa+" points de vie, il vous reste "+pj.pointsVie+" points de vie.");
+		if(pj.pointsVie < 0) {
+			System.out.println("Vous perdez "+degatsIa+" points de vie, il vous reste 0 points de vie.");
+		} else System.out.println("Vous perdez "+degatsIa+" points de vie, il vous reste "+pj.pointsVie+" points de vie.");
 	}
 	
 }

@@ -26,12 +26,14 @@ public class Heros extends Personnage {
 			degatsPj = 1;
 		}
 		ia.pointsVie -= degatsPj;
-		System.out.println("Le "+ia.nom+" ennemi perd "+degatsPj+" points de vie, il lui reste "+ia.pointsVie+" points de vie.");
+		if(ia.pointsVie < 0) {
+			System.out.println("Le "+ia.nom+" ennemi perd "+degatsPj+" points de vie, il lui reste 0 points de vie.");
+		} else System.out.println("Le "+ia.nom+" ennemi perd "+degatsPj+" points de vie, il lui reste "+ia.pointsVie+" points de vie.");
 	}
 	
 	public void monterNiveau() {
 		this.pointsVieMax += 5;
-		this.attaque += 2;
+		this.attaque++;
 		this.armure++;
 		this.vitesse++;
 		this.niveau++;
