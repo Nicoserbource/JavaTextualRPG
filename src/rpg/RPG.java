@@ -23,11 +23,27 @@ public class RPG {
 	   		new Monstre("bandit", 15, 15, 3, 3, 3, 1)
 		};
 		for(Monstre monstre : tableauMonstres) {
-			Combat.combattreAuto(joueur, monstre);
-			input.nextLine();
+			if(joueur.pointsVie>0) {
+				System.out.println("Un "+monstre.nom+" ennemi se trouve sur votre chemin.");
+				System.out.println("| 0 : Combat automatique || 1 : Combat manuel |");
+				switch(input.nextLine()) {
+				case "0" :
+					Combat.combattreAuto(joueur, monstre);
+				case "1" :
+					Combat.combattreManuel(joueur, monstre, input);
+				default :
+					System.out.println("| 0 : Combat automatique || 1 : Combat manuel |");
+				}
+				input.nextLine();
+			} else break;
 		}
-		System.out.println("Vous avez terminé le premier niveau.");
-		input.close();
+		if(joueur.pointsVie<=0) {
+			System.out.println("Vous êtes mort.");
+			input.close();
+		} else {
+			System.out.println("Vous avez terminé le premier niveau.");
+			input.close();
+		}
 	}
 
 }
